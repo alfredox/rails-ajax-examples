@@ -1,5 +1,9 @@
 RailsAjaxExamples::Application.routes.draw do
-  resources :addresses
+  resources :addresses do
+    collection do
+      get 'autocomplete_with_zip'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -16,4 +16,9 @@ class AddressesController < ApplicationController
       render 'new'
     end
   end
+
+  def autocomplete_with_zip
+    @partial_address = {:city => 'Monterrey', :country => 'Mexico'}
+    render :json => @partial_address.to_json
+  end
 end
