@@ -1,0 +1,24 @@
+%table{:border => "1", :style => 'width:80%;margin:0 auto;'}
+  %thead
+    %th Street
+    %th No Int
+    %th No Ext
+    %th City
+    %th zip code
+    %th Country
+    %th &nbsp;
+    %th &nbsp;
+  %tbody
+    - @addresses.each do |address|
+      %tr
+        %td= address.street
+        %td= address.no_ext
+        %td= address.no_int
+        %td= address.city
+        %td= address.zip_code
+        %td= address.country
+        %td= link_to 'Edit', edit_address_path(address)
+        %td= link_to 'Delete', address_path(address), :method => :delete, :confirm => 'Sure?'
+
+%br
+=link_to 'New address', new_address_path
