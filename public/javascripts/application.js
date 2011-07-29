@@ -5,7 +5,7 @@ jQuery(function($) {
         lastIndex = selectorId.lastIndexOf('zip_code'),
         selectorPrefix = selectorId.slice(0, lastIndex) ;
 
-    $.get('/addresses/autocomplete_with_zip', function(data) {
+    $.get('/addresses/autocomplete_with_zip', 'zip_code=' + $(this).val(), function(data) {
       $.assignJSONToInputFields(selectorPrefix, data) ;
     });
   });
