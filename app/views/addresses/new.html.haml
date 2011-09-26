@@ -7,9 +7,6 @@
     = f.label :no_ext
     = f.text_field :no_ext
     %br
-    = f.label :no_int
-    = f.text_field :no_int
-    %br
     = f.label :zip_code
     = f.text_field :zip_code, :class => 'zip_code_autocomplete'
     %br
@@ -18,5 +15,8 @@
     %br
     = f.label :country
     = f.text_field :country
+    %br
+    = f.label :no_int
+    = f.select :no_int, ['Int A', 'Int B']
     %br
     = f.submit "Submit"
