@@ -2,7 +2,7 @@ jQuery(function($) {
 
   // plugin: name ajaxDataCall //temporal
   (function( $ ){
-    $.fn.ajaxDataCall = function(url, fieldName) {
+    $.fn.ajaxDataCall = function(url, fieldName, callback) {
 
       var createHTMLOptionsStringFromCollection = function (collection) {
         if (collection instanceof Array) {
@@ -48,12 +48,18 @@ jQuery(function($) {
 
           $.get(url, fieldName + '=' + $(this).val(), function(data) {
             assignJSONToInputFields(selectorPrefix, data) ;
+            if (callback)
+              callback.call() ;
           });
         });
       }) ;
     };
   })( jQuery );
 
+
   $(".zip_code_autocomplete").ajaxDataCall('/addresses/autocomplete_with_zip', 'zip_code');
+  
+  // también se puede llamar con una función callback
+  //$(".zip_code_autocomplete").ajaxDataCall('/addresses/autocomplete_with_zip', 'zip_code', function(){console.log('good!')});
 
 })
