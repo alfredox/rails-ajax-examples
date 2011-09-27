@@ -25,7 +25,8 @@ jQuery(function($) {
       var assignJSONToInputFields = function (selectorPrefix, json) {
         for (var key in json) {
           var $inputTag = $('#' + selectorPrefix + key) ;
-          if ($inputTag.prop('tagName') == 'SELECT') {
+          // .prop() is not compatible con jquery 1.5, so it uses .attr
+          if ($inputTag.attr('tagName') == 'SELECT') {
             $inputTag.html(createHTMLOptionsStringFromCollection(json[key])) ;
           }
           else {
